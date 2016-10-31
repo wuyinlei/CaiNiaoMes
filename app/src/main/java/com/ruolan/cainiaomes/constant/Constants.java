@@ -7,4 +7,6 @@ package com.ruolan.cainiaomes.constant;
 public class Constants {
 
     public static final String KEY_MESSAGE = "key_message";
+
+    public static final String KEY_PROFILE ="key_profile";
 }

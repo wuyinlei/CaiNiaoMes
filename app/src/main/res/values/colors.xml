@@ -6,4 +6,13 @@
     <color name="common_top_bar_blue">#22292c</color>
 
     <color name="white">#FFFFFF</color>
+
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_frame">#ff000000</color>
+    <color name="viewfinder_laser">#ffff0000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+
+    <color name="listview_driver">#eeeeee</color>
+    <color name="green">#e581ff02</color>
 </resources>

@@ -37,7 +37,7 @@ public abstract class BaseFragment extends Fragment {
         if (mContentView == null) {
             //initView(savedInstanceState);
             setContentView(getLayoutId());
-            setListener();
+
             processLogic(savedInstanceState);
         } else {
             ViewGroup parent = (ViewGroup) mContentView.getParent();
@@ -45,6 +45,8 @@ public abstract class BaseFragment extends Fragment {
                 parent.removeView(mContentView);
             }
         }
+        initView(mContentView,savedInstanceState);
+        setListener();
         return mContentView;
     }
 

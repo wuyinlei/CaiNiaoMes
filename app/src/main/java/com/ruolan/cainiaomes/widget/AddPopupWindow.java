@@ -12,6 +12,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
 import com.ruolan.cainiaomes.R;
+import com.ruolan.cainiaomes.zxing.activity.CaptureActivity;
 
 /**
  * Created by Administrator on 2016/10/28.
@@ -63,7 +64,8 @@ public class AddPopupWindow extends PopupWindow {
          * 扫一扫界面
          */
         re_saoyisao.setOnClickListener(v -> {
-
+            context.startActivity(new Intent(context,CaptureActivity.class));
+            AddPopupWindow.this.dismiss();
         });
 
         /**

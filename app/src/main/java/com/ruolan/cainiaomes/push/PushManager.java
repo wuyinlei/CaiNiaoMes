@@ -38,9 +38,9 @@ public class PushManager {
 //        Intent intent = new Intent(mContext,PushService.class);
 //        intent.putExtra(Constants.KEY_MESSAGE,message);
 //        mContext.startService(intent);
-        message.setStatue(Message.StatusType.ing);
+        //message.setStatue(Message.StatusType.ing);
         PushChanger.getInstance().notifyChanged(message);
-        message.setStatue(Message.StatusType.done);
+       // message.setStatue(Message.StatusType.done);
         PushChanger.getInstance().notifyChanged(message);
     }
 

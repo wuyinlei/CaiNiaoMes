@@ -4,6 +4,8 @@ import com.google.gson.stream.JsonReader;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import com.ruolan.cainiaomes.MesApplicaption;
+import com.ruolan.cainiaomes.db.ConversationController;
 import com.ruolan.cainiaomes.net.AppException;
 
 import java.io.IOException;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 
 /**
  * Created by wuyinlei on 2016/10/29.
+ *
  */
 @DatabaseTable(tableName = "message")
 public class Message extends BaseEntity implements Serializable {
@@ -33,11 +36,11 @@ public class Message extends BaseEntity implements Serializable {
 
     public enum StatusType {
         ing, done, fail
-    };
+    }
 
     public enum MessageType {
         txt, multimedia,emo
-    };
+    }
 
     @DatabaseField(id = true)
     private String _id;
@@ -221,27 +224,27 @@ public class Message extends BaseEntity implements Serializable {
         conversation.setStatus(getStatus());
         conversation.setTimestamp(getTimestamp());
         conversation.setType(getType());
-//        if (!getSenderId().equals(IMApplication.selfId)) {
-//            conversation.setTargetId(getSenderId());
-//            conversation.setTargetName(getSender_name());
-//            conversation.setTargetPicture(getSender_picture());
-//            Conversation tmp = ConversationController.queryById(conversation.getTargetId());
-//            if (tmp != null) {
-//                if(tmp.getTimestamp() == conversation.getTimestamp()){
-//                    conversation.setUnreadNum(tmp.getUnreadNum());
-//                }else {
-//                    conversation.setUnreadNum(tmp.getUnreadNum()+1);
-//                }
-//            }else {
-//                conversation.setUnreadNum(1);
-//            }
-//        } else {
-//            conversation.setTargetId(getReceiverId());
-//            conversation.setTargetName(getReceiver_name());
-//            conversation.setTargetPicture(getReceiver_picture());
-//            Conversation tmp = ConversationController.queryById(conversation.getTargetId());
-//            conversation.setUnreadNum(tmp == null ? 0 : tmp.getUnreadNum());
-//        }
+        if (!getSenderId().equals(MesApplicaption.selfId)) {
+            conversation.setTargetId(getSenderId());
+            conversation.setTargetName(getSender_name());
+            conversation.setTargetPicture(getSender_picture());
+            Conversation tmp = ConversationController.queryById(conversation.getTargetId());
+            if (tmp != null) {
+                if(tmp.getTimestamp() == conversation.getTimestamp()){
+                    conversation.setUnreadNum(tmp.getUnreadNum());
+                }else {
+                    conversation.setUnreadNum(tmp.getUnreadNum()+1);
+                }
+            }else {
+                conversation.setUnreadNum(1);
+            }
+        } else {
+            conversation.setTargetId(getReceiverId());
+            conversation.setTargetName(getReceiver_name());
+            conversation.setTargetPicture(getReceiver_picture());
+            Conversation tmp = ConversationController.queryById(conversation.getTargetId());
+            conversation.setUnreadNum(tmp == null ? 0 : tmp.getUnreadNum());
+        }
         return conversation;
     }
 

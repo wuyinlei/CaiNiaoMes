@@ -29,6 +29,7 @@ public class AlphaIndicator extends LinearLayout {
      */
     private int childCount;
     /**
+     *
      * 当前的条目索引
      */
     private int currentItem = 0;

@@ -1,9 +1,11 @@
-package com.ruolan.cainiaomes;
+package com.ruolan.cainiaomes.ui;
 
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.ruolan.cainiaomes.BaseActivity;
+import com.ruolan.cainiaomes.R;
 import com.ruolan.cainiaomes.adapter.MainAdapter;
 import com.ruolan.cainiaomes.utils.TranslucentUtils;
 import com.ruolan.cainiaomes.widget.AddPopupWindow;
@@ -42,7 +44,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.iv_add:
                 showPop(v);
                 break;
@@ -52,6 +54,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
+    /**
+     * 显示Pop
+     *
+     * @param view 需要显示在的哪个View
+     */
     private void showPop(View view) {
         AddPopupWindow popupWindow = new AddPopupWindow(this);
         popupWindow.showAsDropDown(view);
